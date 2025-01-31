@@ -30,23 +30,23 @@ async def help_command(update: Update, context: CallbackContext):
         # Help text for regular users (exclude sensitive commands)
         help_text = (
             "*Here are the commands you can use:* \n\n"
-            "*🔸 /start* - Start interacting with the bot.\n"
-            "*🔸 /attack* - Trigger an attack operation.\n"
-            "*🔸 /redeem* - Redeem a code.\n"
+            "*🦚 /start* - Start interacting with the bot.\n"
+            "*🦚 /attack* - Trigger an attack operation.\n"
+            "*🦚 /redeem* - Redeem a code.\n"
         )
     else:
         # Help text for admins (include sensitive commands)
         help_text = (
-            "*💡 Available Commands for Admins:*\n\n"
-            "*🔸 /start* - Start the bot.\n"
-            "*🔸 /attack* - Start the attack.\n"
-            "*🔸 /add [user_id]* - Add a user.\n"
-            "*🔸 /remove [user_id]* - Remove a user.\n"
-            "*🔸 /users* - List all allowed users.\n"
-            "*🔸 /gen* - Generate a redeem code.\n"
-            "*🔸 /redeem* - Redeem a code.\n"
-            "*🔸 /delete_code* - Delete a redeem code.\n"
-            "*🔸 /list_codes* - List all redeem codes.\n"
+            "*🍑 Available Commands for Admins:*\n\n"
+            "*🦚 /start* - 𝙎𝙩𝙖𝙧𝙩 𝙩𝙝𝙚 𝘽𝙤𝙩.\n"
+            "*🦚 /attack* - 𝙎𝙀𝙍𝙑𝙀𝙍 𝘼𝙏𝙏𝘼𝘾𝙆.\n"
+            "*🦚 /add [user_id]* - Add a user.\n"
+            "*🦚 /remove [user_id]* - Remove a user.\n"
+            "*🦚 /users* - 𝘾𝙃𝙀𝘾𝙆 𝘼𝙇𝙇 𝙈𝘼𝘿𝙀𝙍𝘾𝙃𝙊𝙊𝘿 .\n"
+            "*🦚 /gen* - Generate a redeem code.\n"
+            "*🦚 /redeem* - 𝘼𝙥𝙥𝙡𝙮 𝙣𝙚𝙬 𝙘𝙤𝙙𝙚.\n"
+            "*🦚 /delete_code* - Delete a redeem code.\n"
+            "*🦚 /list_codes* - 𝙇𝙄𝙎𝙏 𝘼𝙇𝙇 𝘾𝙊𝘿𝙀𝙎.\n"
         )
     await context.bot.send_message(chat_id=update.effective_chat.id, text=help_text, parse_mode='Markdown')
 
@@ -60,16 +60,16 @@ async def start(update: Update, context: CallbackContext):
         return
 
     message = (
-        "*🔥 Welcome to VIP_DARK_GAMING DDOS WORLD 🔥*\n\n"
-        "*Use /attack <ip> <port> <duration>*\n"
-        "*Let the war begin! ⚔️💥*"
+        "*❄️ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴘʀᴇᴍɪᴜᴍ ᴅᴅᴏs ʙᴏᴛ, {user_name}! ᴛʜɪs ɪs ʜɪɢʜ ǫᴜᴀʟɪᴛʏ sᴇʀᴠᴇʀ ʙᴀsᴇᴅ ᴅᴅᴏs. ᴛᴏ ɢᴇᴛ ᴀᴄᴄᴇss.  *\n\n"
+        "*🦚𝙏𝙍𝙔 𝙏𝙃𝙄𝙎 𝘾𝙊𝙊𝙈𝙈𝘼𝙉𝘿: /help *\n"
+        "*🥶𝘽𝙐𝙔 :- @TRUSTVIP_MOD0*"
     )
     await context.bot.send_message(chat_id=chat_id, text=message, parse_mode='Markdown')
 
 async def add_user(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
     if user_id != ADMIN_USER_ID:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="*❌ You are not authorized to add users!*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="*𝗜乛 𝗧𝗥𝗨𝗦𝗧 𝗢𝗪𝗡𝗘𝗥 𓆩☠️𓆪, 𝐇𝐚𝐯𝐞 𝐎𝐧𝐥𝐲!*", parse_mode='Markdown')
         return
 
     if len(context.args) != 2:
@@ -104,7 +104,7 @@ async def add_user(update: Update, context: CallbackContext):
 async def remove_user(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
     if user_id != ADMIN_USER_ID:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="*❌ You are not authorized to remove users!*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="* ʸᵒᵘ ⁿᵒᵗ ᵖᵘʳᶜʰᵃˢᵉ ᵗʰⁱˢ ᵇᵒᵗ ᵃⁿᵈ ᵒʷⁿᵉʳ ᶜᵃⁿ ᵈᵒ ᵗʰⁱˢ ᵈᵐ @TRUSTVIP_MOD0 🙇!*", parse_mode='Markdown')
         return
 
     if len(context.args) != 1:
@@ -137,7 +137,7 @@ async def attack(update: Update, context: CallbackContext):
 
     # Check if the user is allowed to use the bot
     if not await is_user_allowed(user_id):
-        await context.bot.send_message(chat_id=chat_id, text="*❌ You are not authorized to use this bot!*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="* 𝗖𝗛𝗟 𝗕𝗢𝗢𝗦𝗗𝗜𝗞𝗘 😂 𝗙𝗜𝗥𝗦𝗧 𝗨𝗦𝗘 𝗖𝗢𝗡𝗗𝗢𝗠  𝗕𝗨𝗬 @TRUSTVIP_MOD0   *", parse_mode='Markdown')
         return
 
     args = context.args
@@ -147,10 +147,10 @@ async def attack(update: Update, context: CallbackContext):
 
     ip, port, duration = args
     await context.bot.send_message(chat_id=chat_id, text=( 
-        f"*⚔️ Attack Launched! ⚔️*\n"
-        f"*🎯 Target: {ip}:{port}*\n"
-        f"*🕒 Duration: {duration} seconds*\n"
-        f"*🔥 Let the battlefield ignite! 💥*"
+        f"*💣 ATTACKING ON SERVER 🥶*\n"
+        f"* Target: {ip}:{port}*\n"
+        f"* Duration: {duration} seconds*\n"
+        f"* 😂 FUCKING ON*"
     ), parse_mode='Markdown')
 
     asyncio.create_task(run_attack(chat_id, ip, port, duration, context))
